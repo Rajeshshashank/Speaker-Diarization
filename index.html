@@ -24,8 +24,8 @@
       width: 100%;
       height: 100%;
       z-index: -1;
-      background-color: #000;
-      box-shadow: 0 0 20px #fff, 0 0 40px #fff, 0 0 80px #fff, 0 0 160px #ff00de, 0 0 200px #ff00de, 0 0 300px #ff00de;
+      background-color: #271E17;
+      box-shadow: 0 0 20px #fff, 0 0 40px #fff, 0 0 80px #fff, 0 0 160px #C3B976, 0 0 200px #C3B976, 0 0 300px #C3B976;
     }
     .neon-rectangle {
       position: relative;
@@ -104,5 +104,16 @@
       fileInput.click();
     });
   </script>
+  <script>
+      var neonRectangle = document.querySelector('.neon-rectangle');
+      var colors = ['#ff00de', '#00ffea', '#ff00bb'];
+      var i = 0;
+
+      setInterval(function() {
+          neonRectangle.style.backgroundColor  = colors[i % colors.length];
+          i++;
+      }, 1000);
+  </script>
+
 </body>
 </html>
