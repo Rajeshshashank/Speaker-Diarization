@@ -38,7 +38,7 @@
       color: cadetblue;
       position: fixed;
       bottom: 10%;
-      left: 20%;  
+      left: 20%;
       word-spacing: 120px;
       margin-bottom: 12%;
     }
@@ -103,6 +103,12 @@
 
     uploadBtn.addEventListener("click", function() {
       fileInput.click();
+      fileInput.addEventListener("change", function() {
+        var fileName = fileInput.value.split("\\").pop();
+        var resultBox = document.getElementById("result-box");
+        resultBox.innerHTML = "File uploaded: " + fileName;
+      });
+
     });
     var neonRectangle = document.querySelector('.neon-rectangle');
     var colors = ['#D82E40', '#2BB25A', '#24B6CD'];
