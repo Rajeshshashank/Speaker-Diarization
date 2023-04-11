@@ -40,7 +40,7 @@
       bottom: 10%;
       left: 20%;  
       word-spacing: 120px;
-      margin-bottom: 10%;
+      margin-bottom: 12%;
     }
     button {
       opacity: 0.7;
@@ -83,13 +83,14 @@
       padding: 10px;
       font-size: 18px;
       overflow-y: scroll;
-      margin-bottom: 0;
+      margin-bottom: 2%;
       margin-left: 9%;
     }
   </style>
 </head>
 <body>
   <h1 class="neon-rectangle">Speaker Diarization by Group 9</h1>
+  <p>Speaker diarisation (or diarization) is the process of partitioning an audio stream containing human speech into homogeneous segments according to the identity of each speaker.[1] It can enhance the readability of an automatic speech transcription by structuring the audio stream into speaker turns and, when used together with speaker recognition systems, by providing the speaker’s true identity.[2] It is used to answer the question "who spoke when?"[3] Speaker diarisation is a combination of speaker segmentation and speaker clustering. The first aims at finding speaker change points in an audio stream. The second aims at grouping together speech segments on the basis of speaker characteristics.</p>
   <p1>Rajesh     Piyush      Pratap
      Kartik     Rajkumar   Balaji</p1>
   <button id="upload-btn">Upload File</button>
@@ -103,16 +104,14 @@
     uploadBtn.addEventListener("click", function() {
       fileInput.click();
     });
-  </script>
-  <script>
-      var neonRectangle = document.querySelector('.neon-rectangle');
-      var colors = ['#ff00de', '#00ffea', '#ff00bb'];
-      var i = 0;
+    var neonRectangle = document.querySelector('.neon-rectangle');
+    var colors = ['#D82E40', '#2BB25A', '#24B6CD'];
+    var i = 0;
 
-      setInterval(function() {
+    setInterval(function() {
           neonRectangle.style.backgroundColor  = colors[i % colors.length];
           i++;
-      }, 1000);
+    }, 1000);
   </script>
 
 </body>
