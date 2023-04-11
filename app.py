@@ -18,13 +18,14 @@ def index():
 
 @app.route('/process_audio', methods=['POST'])
 def process_audio():
-    audio_data = request.files['audio'].read()
+    audio_file = request.files['audio']
 
-    # convert audio data to numpy array
-    audio_np = librosa.load(audio_data, sr=16000)[0]
+    # convert audio file to WAV format
+    audio_data = AudioSegment.from_file(audio_file)
+    audio_wav = audio_data.export(format='wav')
 
     # perform speaker diarization
-    results = diarize_speakers(audio_np)
+    results = diarize_speakers(audio_wav)
 
     return jsonify(results)
 
