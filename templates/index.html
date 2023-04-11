@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Speaker Diarization by Group 9</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <style>
+    h1 {
+      text-align: center;
+      font-size: xxx-large;
+      font-weight: bold;
+      color: orange;
+      position: relative;
+      background-color: white;
+      background-size: cover;
+      color: transparent;
+      -webkit-background-clip: text;
+      -moz-background-clip: text;
+      background-clip: text;
+    }
+    .neon-rectangle::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background-color: #271E17;
+      box-shadow: 0 0 20px #fff, 0 0 40px #fff, 0 0 80px #fff, 0 0 160px #C3B976, 0 0 200px #C3B976, 0 0 300px #C3B976;
+    }
+    .neon-rectangle {
+      position: relative;
+      color: #fff;
+    }
+    p1 {
+      text-align: center;
+      font-size: medium;
+      font-weight: 200;
+      color: cadetblue;
+      position: fixed;
+      bottom: 10%;
+      left: 20%;
+      word-spacing: 120px;
+      margin-bottom: 12%;
+    }
+    button {
+      opacity: 0.7;
+      background-color: lightgrey;
+      text-align: center;
+      color: white;
+      font-size: large;
+      top: 55%;
+      margin-left: 10%;
+      padding: 8px 16px;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+      margin-top: 130px;
+    }
+    #upload-btn::after {
+      content: "\1F4E2";
+      margin-left: 8px;
+    }
+    #floating-gif {
+      position: absolute;
+      height: 261px;
+      width: 700px;
+      top: 44%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 30px;
+      border-top-left-radius: 10;
+      border-top-right-radius: 10;
+      background-color: rgba(255, 255, 255, 0.3);
+      filter: blur(1px);
+    }
+    #result-box {
+      border: 1px solid black;
+      position: absolute;
+      bottom: 0;
+      width: 80%;
+      height: 200px;
+      margin: 50px auto;
+      padding: 10px;
+      font-size: 18px;
+      overflow-y: scroll;
+      margin-bottom: 2%;
+      margin-left: 9%;
+    }
+  </style>
+</head>
+<body>
+  <h1 class="neon-rectangle">Speaker Diarization by Group 9</h1>
+  <p>Speaker diarisation (or diarization) is the process of partitioning an audio stream containing human speech into homogeneous segments according to the identity of each speaker. It can enhance the readability of an automatic speech transcription by structuring the audio stream into speaker turns and, when used together with speaker recognition systems, by providing the speaker’s true identity. It is used to answer the question "who spoke when?" Speaker diarisation is a combination of speaker segmentation and speaker clustering. The first aims at finding speaker change points in an audio stream. The second aims at grouping together speech segments on the basis of speaker characteristics.</p>
+  <p1>Rajesh Piyush Pratap Kartik Rajkumar Balaji</p1>
+  <button id="upload-btn">Upload File</button>
+  <input type="file" id="file-input" style="display: none;">
+  <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNGFkYmJhNTA4Y2Q2NzcxMzQ3ZWM4MWY1NDdjYTJiNmIzZjlmMjkxZSZjdD1n/fYkWqB2Ay1VfuLaFU9/giphy-downsized-large.gif" id="floating-gif" alt="floating-gif">
+  <div id="result-box"></div>
+  <script>
+    var uploadBtn = document.getElementById("upload-btn");
+    var fileInput = document.getElementById("file-input");
+
+    uploadBtn.addEventListener("click", function() {
+      fileInput.click();
+      fileInput.addEventListener("change", function() {
+        var fileName = fileInput.value.split("\\").pop();
+        var resultBox = document.getElementById("result-box");
+        resultBox.innerHTML = "File uploaded: " + fileName;
+      });
+
+    });
+    var neonRectangle = document.querySelector('.neon-rectangle');
+    var colors = ['#D82E40', '#2BB25A', '#24B6CD'];
+    var i = 0;
+
+    setInterval(function() {
+          neonRectangle.style.backgroundColor  = colors[i % colors.length];
+          i++;
+    }, 1000);
+  </script>
+
+</body>
+</html>
