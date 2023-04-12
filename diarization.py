@@ -23,34 +23,3 @@ def diarize_speakers(audio_file, n_speakers=1):
     except ValueError:
         result_str = "Speaker diarization unsuccessful. Please try again with a different audio file or adjust the parameters."
     return result_str
-
-
-@app.route('/')
-def index():
-    return render_template('index.html')
-
-
-@app.route('/process_audio', methods=['POST'])
-def process_audio():
-    audio_file = request.files['audio']
-
-    # save the audio file
-    filename = audio_file.filename
-    audio_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-    audio_file.save(audio_path)
-
-    # perform speaker diarization
-    results = diarize_speakers(audio_path)
-
-    # format the results as a string
-    result_str = ""
-    for i, speaker in enumerate(results):
-        result_str += f"Speaker {i + 1}: {speaker}\n"
-
-    # return the results as a JSON object
-    return jsonify({'results': result_str})
-
-
-if __name__ == '__main__':
-    app.config['UPLOAD_FOLDER'] = './uploads'
-    app.run(debug=True)
