@@ -89,7 +89,7 @@
 <body>
   <h1 class="neon-rectangle">Speaker Diarization by Group 9</h1>
   <p2>Speaker diarisation (or diarization) is the process of partitioning an audio stream containing human speech into homogeneous segments according to the identity of each speaker. It can enhance the readability of an automatic speech transcription by structuring the audio stream into speaker turns and, when used together with speaker recognition systems, by providing the speaker’s true identity. It is used to answer the question "who spoke when?" Speaker diarisation is a combination of speaker segmentation and speaker clustering. The first aims at finding speaker change points in an audio stream. The second aims at grouping together speech segments on the basis of speaker characteristics.</p2>
-  <form method="POST" action="http://127.0.0.1:5000/process_audio" enctype="multipart/form-data">
+  <form method="POST" action="https://groupnine.netlify.app/process_audio" enctype="multipart/form-data">
       <label for="audio">Upload audio file:</label><br>
       <input type="file" id="audio" name="audio"><br><br>
       <input type="submit" value="Submit">
